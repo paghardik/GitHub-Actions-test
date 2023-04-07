@@ -1,20 +1,25 @@
 
 name: Super-Linter
 
-on: push
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  super-lint:
-    name: Lint code base
+  job_name_hello:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - name: Hello world script name
+        run: echo "Hello World"
+        shell: bash
         
-      - name: Super-Linter
-        uses: github/super-linter@v4.10.1
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  job_name_goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: goodbye
+      - run: echo "Good bye"
+        shell: bash
 
