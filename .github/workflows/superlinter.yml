@@ -19,6 +19,7 @@ jobs:
   job_name_goodbye:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: goodbye
       - run: echo "Good bye"
         shell: bash
